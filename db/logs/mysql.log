@@ -1,0 +1,306 @@
+/usr/sbin/mysqld, Version: 8.0.32 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2023-05-14T11:31:05.027388Z	    0 Execute	CREATE TABLE performance_schema.innodb_redo_log_files(
+`FILE_ID` BIGINT NOT NULL COMMENT 'Id of the file.',
+`FILE_NAME` VARCHAR(2000) NOT NULL COMMENT 'Path to the file.',
+`START_LSN` BIGINT NOT NULL COMMENT 'LSN of the first block in the file.',
+`END_LSN` BIGINT NOT NULL COMMENT 'LSN after the last block in the file.',
+`SIZE_IN_BYTES` BIGINT NOT NULL COMMENT 'Size of the file (in bytes).',
+`IS_FULL` TINYINT NOT NULL COMMENT '1 iff file has no free space inside.',
+`CONSUMER_LEVEL` INT NOT NULL COMMENT 'All redo log consumers registered on smaller levels than this value, have already consumed this file.'
+)engine = 'performance_schema'
+2023-05-14T11:31:15.372191Z	    8 Connect	root@192.168.0.1 on  using SSL/TLS
+2023-05-14T11:31:15.392216Z	    8 Query	/* mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2023-05-14T11:31:15.396270Z	    8 Query	SET NAMES utf8mb4
+2023-05-14T11:31:15.398424Z	    8 Query	SET character_set_results = utf8
+2023-05-14T11:31:15.400556Z	    8 Query	SET autocommit=1
+2023-05-14T11:31:15.404188Z	    8 Query	select version(), @@version_comment, database()
+2023-05-14T11:31:15.406951Z	    8 Query	show variables like 'aurora\_version'
+2023-05-14T11:31:15.430882Z	    8 Query	SELECT @@session.transaction_isolation
+2023-05-14T11:31:15.433701Z	    8 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ set session transaction read write
+2023-05-14T11:31:15.442596Z	    8 Query	SHOW WARNINGS
+2023-05-14T11:31:15.446703Z	    8 Query	SELECT @@session.transaction_read_only
+2023-05-14T11:31:15.449714Z	    8 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ use index_performance
+2023-05-14T11:31:15.453256Z	    8 Query	SHOW WARNINGS
+2023-05-14T11:31:15.456976Z	    8 Query	SELECT @@session.transaction_read_only
+2023-05-14T11:31:15.461357Z	    8 Query	SHOW WARNINGS
+2023-05-14T11:31:15.472076Z	    8 Query	SELECT @@session.transaction_read_only
+2023-05-14T11:31:15.475062Z	    8 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:15.477158Z	    8 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ DO SLEEP(5)
+2023-05-14T11:31:20.480987Z	    8 Query	SHOW WARNINGS
+2023-05-14T11:31:20.488995Z	    8 Query	SELECT @@session.transaction_isolation
+2023-05-14T11:31:20.503768Z	    8 Query	SELECT @@session.transaction_isolation
+2023-05-14T11:31:20.508080Z	    8 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ set session transaction read write
+2023-05-14T11:31:20.515757Z	    8 Query	SELECT @@session.transaction_read_only
+2023-05-14T11:31:20.523766Z	    8 Query	SHOW WARNINGS
+2023-05-14T11:31:20.529682Z	    8 Query	SELECT @@session.transaction_read_only
+2023-05-14T11:31:20.534403Z	    8 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.537044Z	    8 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ create table if not exists customer(id bigint, name varchar(200), age bigint )
+2023-05-14T11:31:20.548196Z	    8 Query	SHOW WARNINGS
+2023-05-14T11:31:20.556184Z	    8 Query	SHOW WARNINGS
+2023-05-14T11:31:20.560675Z	    8 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select database()
+2023-05-14T11:31:20.571192Z	    8 Query	SHOW WARNINGS
+2023-05-14T11:31:20.576052Z	    8 Query	SELECT @@session.transaction_isolation
+2023-05-14T11:31:20.614334Z	    9 Connect	root@192.168.0.1 on  using SSL/TLS
+2023-05-14T11:31:20.617478Z	    9 Query	/* mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2023-05-14T11:31:20.620171Z	    9 Query	SET NAMES utf8mb4
+2023-05-14T11:31:20.623507Z	    9 Query	SET character_set_results = utf8
+2023-05-14T11:31:20.625932Z	    9 Query	SET autocommit=1
+2023-05-14T11:31:20.628752Z	    9 Query	select version(), @@version_comment, database()
+2023-05-14T11:31:20.631671Z	    9 Query	show variables like 'aurora\_version'
+2023-05-14T11:31:20.651781Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ set session transaction read write
+2023-05-14T11:31:20.660503Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.664740Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select database()
+2023-05-14T11:31:20.672619Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.677330Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.679501Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select database(), schema(), left(user(),instr(concat(user(),'@'),'@')-1)
+2023-05-14T11:31:20.681851Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.689000Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.691772Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.693934Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select @@event_scheduler
+2023-05-14T11:31:20.700352Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.703257Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.708125Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.710885Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.712934Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select @@default_storage_engine, @@default_tmp_storage_engine
+2023-05-14T11:31:20.717609Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.720563Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.725089Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.727351Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.729821Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select table_name from information_schema.tables
+        where table_schema collate utf8_general_ci = 'information_schema'
+          and table_name collate utf8_general_ci = 'parameters'
+2023-05-14T11:31:20.737360Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.740489Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.746030Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.748678Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.750753Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select @@GLOBAL.lower_case_table_names
+2023-05-14T11:31:20.756324Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.759104Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.763158Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.767090Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.769247Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select schema_name, default_collation_name
+        from information_schema.schemata
+        order by if(schema() = schema_name, 1, 2), schema_name
+2023-05-14T11:31:20.774731Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.777351Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.782780Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.785904Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.788175Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select collation_name, character_set_name,
+          is_default collate utf8_general_ci = 'Yes' as is_default
+        from information_schema.collations
+2023-05-14T11:31:20.797591Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.805464Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.808725Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.811104Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.812967Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select Host, User,
+       ssl_type, ssl_cipher, x509_issuer, x509_subject,
+       max_questions, max_updates, max_connections, max_user_connections, plugin, authentication_string, account_locked is_role
+      from mysql.user
+2023-05-14T11:31:20.817901Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.821278Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.825292Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.828411Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.832572Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select grantee, privilege_type, is_grantable from information_schema.user_privileges
+2023-05-14T11:31:20.838243Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.843618Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.847728Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.850477Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.853101Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select grantee, table_schema, privilege_type, is_grantable from information_schema.schema_privileges
+2023-05-14T11:31:20.859827Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.863067Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.867204Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.869568Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.871590Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select from_host, from_user, to_host, to_user, with_admin_option from mysql.role_edges order by to_user, to_host
+2023-05-14T11:31:20.873539Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.876690Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.880299Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.882523Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.884590Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select @@GLOBAL.lower_case_table_names
+2023-05-14T11:31:20.888667Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.891246Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.895074Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.897861Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.899880Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select schema_name, default_collation_name
+        from information_schema.schemata
+        order by if(schema() = schema_name, 1, 2), schema_name
+2023-05-14T11:31:20.904962Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.912298Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.916274Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.918936Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.920824Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select table_name, table_type, table_comment, engine, table_collation
+        from information_schema.tables
+        where table_schema = 'index_performance'
+2023-05-14T11:31:20.927008Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.929866Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.935018Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.937686Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.939376Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select
+          ordinal_position,
+          column_name,
+          column_type,
+          column_default,
+          generation_expression,
+          table_name,
+          column_comment,
+          is_nullable,
+          extra,
+          collation_name
+        from information_schema.columns
+        where table_schema = 'index_performance'
+        order by table_name, ordinal_position
+2023-05-14T11:31:20.944690Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.949157Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.952739Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.954778Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.957234Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select table_name, auto_increment
+        from information_schema.tables
+        where table_schema = 'index_performance' and auto_increment is not null
+2023-05-14T11:31:20.960182Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.966364Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.970642Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.973416Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.975187Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select
+          table_name,
+          index_name,
+          index_comment,
+          index_type,
+          non_unique,
+          column_name,
+          sub_part,
+          collation,
+          expression
+        from information_schema.statistics
+        where table_schema = 'index_performance' and
+              index_schema = 'index_performance' and
+              index_name collate utf8_general_ci <> 'PRIMARY'
+        order by
+          index_schema,
+          table_name,
+          index_name,
+          seq_in_index
+2023-05-14T11:31:20.978125Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:20.984264Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.988738Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:20.991785Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:20.994235Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select
+          c.constraint_name,
+          c.constraint_schema,
+          c.table_name,
+          c.constraint_type,
+          c.enforced = 'YES' enforced
+        from information_schema.table_constraints c
+          where c.table_schema = 'index_performance'
+2023-05-14T11:31:20.997333Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.001761Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.005201Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.007508Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.008940Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select
+        constraint_name,
+        table_name,
+        column_name,
+        referenced_table_schema,
+        referenced_table_name,
+        referenced_column_name
+      from information_schema.key_column_usage
+      where table_schema = 'index_performance'
+      order by
+          table_name
+        , constraint_name
+        , ordinal_position
+2023-05-14T11:31:21.011724Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.016147Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.019511Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.022705Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.024993Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select table_name, partition_name, subpartition_name, partition_ordinal_position,
+       subpartition_ordinal_position, partition_method, subpartition_method, partition_expression,
+       subpartition_expression, partition_description, partition_comment/*, tablespace_name*/
+    from information_schema.partitions where partition_name is not null and table_schema = 'index_performance'
+2023-05-14T11:31:21.029169Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.034178Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.039133Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.042025Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.044172Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select
+          trigger_name,
+          event_object_table,
+          event_manipulation,
+          action_timing,
+          definer
+        from information_schema.triggers
+        where trigger_schema = 'index_performance'
+2023-05-14T11:31:21.047625Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.051946Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.055502Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.058050Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.060036Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select
+          event_name,
+          event_comment,
+          definer,
+          event_type = 'RECURRING' recurring,
+          interval_value,
+          interval_field,
+          cast(coalesce(starts, execute_at) as char) starts,
+          cast(ends as char) ends,
+          status,
+          on_completion = 'PRESERVE' preserve,
+          last_executed
+        from information_schema.events
+        where event_schema = 'index_performance'
+2023-05-14T11:31:21.062992Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.070158Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.080271Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.082654Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.085239Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select
+          routine_name,
+          routine_type,
+          routine_definition,
+          routine_comment,
+          dtd_identifier,
+          definer,
+          is_deterministic = 'YES' is_deterministic,
+          cast(sql_data_access as char(1)) sql_data_access,
+          cast(security_type as char(1)) security_type
+        from information_schema.routines
+        where routine_schema = 'index_performance'
+2023-05-14T11:31:21.089585Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.094704Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.099076Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.101985Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.103630Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select Host, User, Routine_name, Proc_priv, Routine_type = 'PROCEDURE' as is_proc
+    from mysql.procs_priv where Db = 'index_performance'
+2023-05-14T11:31:21.106228Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.111267Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.114782Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.117609Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.119921Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select grantee, table_name, column_name, privilege_type, is_grantable
+      from information_schema.column_privileges
+      where table_schema = 'index_performance'
+      union all
+      select grantee, table_name, '' column_name, privilege_type, is_grantable
+      from information_schema.table_privileges
+      where table_schema = 'index_performance'
+      order by table_name, grantee, privilege_type
+2023-05-14T11:31:21.122124Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.127413Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.131073Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.133751Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.136421Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select specific_name,
+        ordinal_position,
+        parameter_name,
+        parameter_mode,
+        dtd_identifier
+      from information_schema.parameters
+      where specific_schema = 'index_performance' and ordinal_position > 0
+      order by specific_name, ordinal_position
+2023-05-14T11:31:21.139612Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.144365Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.148678Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.152158Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ SET net_write_timeout=600
+2023-05-14T11:31:21.154681Z	    9 Query	/* ApplicationName=IntelliJ IDEA 2022.1.1 */ select table_name, view_definition, definer
+      from information_schema.views
+      where table_schema = 'index_performance'
+2023-05-14T11:31:21.157334Z	    9 Query	SET net_write_timeout=60
+2023-05-14T11:31:21.161588Z	    9 Query	SHOW WARNINGS
+2023-05-14T11:31:21.170303Z	    9 Query	SELECT @@session.transaction_isolation
+2023-05-14T11:31:21.174383Z	    9 Quit	

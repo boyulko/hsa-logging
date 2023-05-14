@@ -1,0 +1,9 @@
+filebeat.modules:
+  - module: mysql
+    slowlog:
+      var.paths: ["/var/log/mysql/mysql-slow.log*"]
+
+# ---------------------------- Elasticsearch Output ----------------------------
+output.elasticsearch:
+  # Array of hosts to connect to.
+  hosts: ["es01:9200"]

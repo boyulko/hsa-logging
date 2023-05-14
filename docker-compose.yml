@@ -1,0 +1,62 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: arm64v8/mysql:oracle
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_USER: 'user'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'password'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'logging'
+    ports:
+      - "3306:3306"
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+    volumes:
+      - ./conf:/etc/mysql/conf.d
+      - "./db/logs:/var/log/mysql/"
+
+
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
+    ports:
+      - "9200:9200"
+
+    container_name: es01
+    environment:
+      - xpack.security.enabled=false
+      - "discovery.type=single-node"
+      - xpack.security.http.ssl.enabled=false
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.11.0
+    container_name: kibana
+    depends_on:
+      - es01
+    ports:
+      - "5601:5601"
+    environment:
+      - SERVERNAME=kibana
+      - ELASTICSEARCH_HOSTS=http://es01:9200
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.4.0
+#    build: filebeat
+    container_name: filebeat
+    hostname: filebeat
+    restart: always
+    environment:
+      - ELASTICSEARCH_HOSTS=http://es01:9200
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./db/logs:/var/log/mysql/
+    command: filebeat -strict.perms=false
+
